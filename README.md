@@ -238,3 +238,181 @@ console.log(Boolean(0));
 </body>
 </html>
 ```
+---
+🔁 MODULE 2: Asynchronous Programming
+Welcome to Module 2! In this section, you'll dive into the world of asynchronous JavaScript, where you'll learn how to build responsive web apps that don't freeze when fetching data or waiting for long-running processes. You’ll finish this module by creating a full Weather Dashboard using the OpenWeatherMap API.
+
+📚 Topics Covered
+Callback Functions
+
+Promises
+
+Async/Await Pattern
+
+Fetch API
+
+Error Handling
+
+Throttling and Debouncing
+
+Event Loop & Microtasks
+
+Final Project: Weather Dashboard
+
+🌀 1. Callback Functions
+🔎 What is a Callback?
+A callback is a function passed as an argument to another function, to be executed later.
+
+js
+Copy
+Edit
+function fetchData(callback) {
+  setTimeout(() => {
+    callback('Data loaded!');
+  }, 1000);
+}
+
+fetchData((message) => {
+  console.log(message); // "Data loaded!"
+});
+✅ Practice
+Write a loadProfile(callback) function that waits 2 seconds and then logs "Profile Loaded".
+
+Chain multiple callbacks to simulate a step-by-step loading process (e.g., authenticate → fetch profile → show dashboard).
+
+🔐 2. Promises
+🔎 What is a Promise?
+A Promise represents a value that may be available now, later, or never.
+
+js
+Copy
+Edit
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("Data is here!"), 1000);
+});
+
+promise.then(data => console.log(data));
+✅ Practice
+Create a function getPosts() that returns a Promise resolved after 2 seconds.
+
+Chain .then() to log the post list.
+
+⏳ 3. Async/Await Pattern
+🔎 What is Async/Await?
+It’s syntactic sugar over Promises that makes your async code look synchronous and easier to read.
+
+js
+Copy
+Edit
+async function loadData() {
+  try {
+    const result = await fetchData();
+    console.log(result);
+  } catch (err) {
+    console.error(err);
+  }
+}
+✅ Practice
+Convert your getPosts() from earlier to use async/await.
+
+Create a sequence of await calls that depend on each other.
+
+🌐 4. Fetch API
+🔎 What is Fetch?
+The fetch() method lets you make HTTP requests in the browser.
+
+js
+Copy
+Edit
+fetch('https://api.example.com/data')
+  .then(res => res.json())
+  .then(data => console.log(data));
+✅ Practice
+Use fetch() to call https://jsonplaceholder.typicode.com/posts.
+
+Display the first 3 post titles in the browser.
+
+⚠️ 5. Error Handling
+🔎 Why is it Important?
+Handle errors gracefully so your app doesn’t break when a server fails.
+
+js
+Copy
+Edit
+fetch('https://wrong-url.com')
+  .then(response => {
+    if (!response.ok) throw new Error("Fetch failed!");
+    return response.json();
+  })
+  .catch(error => console.error(error));
+✅ Practice
+Break a fetch() on purpose and catch the error.
+
+Use try/catch inside async functions.
+
+⚙️ 6. Throttling and Debouncing
+🔎 What’s the Difference?
+Throttling: Limits function calls to once every X ms.
+
+Debouncing: Waits X ms after the last function call.
+
+js
+Copy
+Edit
+function debounce(fn, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, args), delay);
+  };
+}
+✅ Practice
+Add a debounced search input using setTimeout.
+
+Add a throttled window resize logger using setInterval.
+
+🧠 7. Event Loop & Microtasks
+🔎 How JS Handles Async Code?
+JS has an event loop that manages sync code, microtasks (Promises), and macrotasks (setTimeout, etc.).
+
+js
+Copy
+Edit
+console.log('Start');
+setTimeout(() => console.log('Timeout'), 0);
+Promise.resolve().then(() => console.log('Promise'));
+console.log('End');
+// Output: Start, End, Promise, Timeout
+✅ Practice
+Write your own example mixing Promise, setTimeout, and console.log.
+
+Predict the output before running.
+
+🎯 Project: Weather Dashboard using OpenWeatherMap API
+💡 Project Brief
+Build a dashboard that:
+
+Takes city input
+
+Fetches weather data using OpenWeatherMap
+
+Displays current weather, temperature, and icon
+
+🔨 Features
+Debounced search input
+
+Error handling for invalid cities
+
+Async/Await & Fetch to retrieve weather
+
+Dynamic DOM update
+
+🔗 API Link
+OpenWeatherMap API
+
+🏁 Stretch Goals
+Add 5-day forecast
+
+Show weather history using localStorage
+
+Add dark/light mode toggle
