@@ -239,7 +239,8 @@ console.log(Boolean(0));
 </html>
 ```
 ---
-🔁 MODULE 2: Asynchronous Programming
+#🔁 MODULE 2: Asynchronous Programming
+
 Welcome to Module 2! In this section, you'll dive into the world of asynchronous JavaScript, where you'll learn how to build responsive web apps that don't freeze when fetching data or waiting for long-running processes. You’ll finish this module by creating a full Weather Dashboard using the OpenWeatherMap API.
 
 📚 Topics Covered
