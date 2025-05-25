@@ -419,7 +419,7 @@ Show weather history using localStorage
 Add dark/light mode toggle
 ---
 
-# Module 3: DOM Manipulation & Browser APIs
+# 🧱Module 3: DOM Manipulation & Browser APIs
 ---
 This module focuses on how JavaScript interacts with the structure and content of web pages (the DOM) and how to leverage built-in browser functionalities to create dynamic and interactive web applications.
 
@@ -804,3 +804,421 @@ window.addEventListener('popstate', function(event) {
   console.log('Popstate event:', event);
   if (event.state && event.state.page) {
     updateContent(event.
+
+
+---
+# 🧱 MODULE 4: Modular Code, Tooling & Architecture
+
+Okay, let's delve into Module 4: Modular Code, Tooling & Architecture. This module focuses on structuring your JavaScript code effectively and using modern development tools to streamline your workflow.
+
+Module 4: Modular Code, Tooling & Architecture
+1. ES Modules and CommonJS
+Modularity is crucial for organizing JavaScript code into reusable and maintainable pieces. JavaScript has evolved in how it handles modules.
+
+CommonJS:
+
+Historically, Node.js adopted the CommonJS module system. You've likely seen this if you've worked with Node.js.
+
+require(): To import modules.
+module.exports: To export modules.
+JavaScript
+
+// math.js (CommonJS)
+function add(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+}
+
+module.exports = {
+  add: add,
+  subtract: subtract
+};
+
+// main.js (CommonJS)
+const math = require('./math.js');
+console.log(math.add(5, 3)); // Output: 8
+console.log(math.subtract(10, 4)); // Output: 6
+ES Modules (ESM):
+
+Modern JavaScript (ES6 and later) introduced its native module system. This is the standard for browser-based JavaScript and is increasingly supported in Node.js.
+
+import: To import modules.
+export: To export modules (named or default).
+JavaScript
+
+// math.js (ESM)
+export function add(a, b) {
+  return a + b;
+}
+
+export function subtract(a, b) {
+  return a - b;
+}
+
+// main.js (ESM)
+import { add, subtract } from './math.js';
+console.log(add(5, 3)); // Output: 8
+console.log(subtract(10, 4)); // Output: 6
+
+// Or import everything as an object:
+// import * as math from './math.js';
+// console.log(math.add(5, 3));
+You can also have a default export:
+
+JavaScript
+
+// greeting.js (ESM)
+const message = "Hello!";
+export default message;
+
+// main.js (ESM)
+import greeting from './greeting.js';
+console.log(greeting); // Output: Hello!
+Browsers require special handling for ES Modules, typically using the <script type="module"> tag in your HTML.
+
+HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ES Modules in Browser</title>
+</head>
+<body>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
+Practice Assignment 1:
+
+Create two JavaScript files (utils.js and app.js).
+In utils.js, define a function that capitalizes a string and another that reverses a string. Export these functions using ES Modules.
+In app.js, import these functions and use them to manipulate a string, then log the results to the console. Create an HTML file to run app.js as an ES Module in the browser.
+2. NPM, Yarn, Package Management
+When building larger projects, you'll often rely on third-party libraries. Package managers help you manage these dependencies. npm (Node Package Manager) and Yarn are the most popular ones for JavaScript.
+
+npm: Comes bundled with Node.js.
+
+Yarn: Another package manager developed by Facebook, Google, Exponent, and Tilde. It aims for speed and reliability.
+
+Key Concepts:
+
+package.json: A file at the root of your project that tracks the project's dependencies, scripts, name, version, etc.
+node_modules: A directory where the installed packages and their dependencies reside.
+Common Commands:
+
+npm:
+
+npm init -y: Initializes a new npm project with default settings, creating a package.json file.
+npm install <package-name> or npm i <package-name>: Installs a specific package and adds it to package.json.
+npm install: Installs all dependencies listed in package.json.
+npm uninstall <package-name>: Uninstalls a package and removes it from package.json.
+npm install --save-dev <package-name> or npm i -D <package-name>: Installs a package as a development dependency (used for tooling like linters, testers).
+npm run <script-name>: Executes a script defined in the "scripts" section of package.json.
+Yarn:
+
+yarn init -y: Initializes a new Yarn project with default settings.
+yarn add <package-name>: Installs a package and adds it to package.json and the yarn.lock file.
+yarn: Installs all dependencies listed in package.json.
+yarn remove <package-name>: Uninstalls a package.
+yarn add --dev <package-name> or yarn add -D <package-name>: Installs a development dependency.
+yarn <script-name>: Executes a script defined in the "scripts" section of package.json.
+Example:
+
+Initialize a new npm project: npm init -y
+Install the lodash utility library: npm install lodash (or yarn add lodash)
+In your JavaScript file:
+JavaScript
+
+// Using lodash (assuming you're in a Node.js environment or using a bundler)
+import _ from 'lodash';
+
+const numbers = [1, 2, 2, 3, 4, 4, 5];
+const uniqueNumbers = _.uniq(numbers);
+console.log(uniqueNumbers); // Output: [1, 2, 3, 4, 5]
+Practice Assignment 2:
+
+Create a new project directory.
+Initialize an npm (or Yarn) project.
+Install the moment library (for date manipulation).
+Write a JavaScript file that imports moment and uses it to display the current date and time in a specific format. Run this file (you might need Node.js for this step if not using a bundler yet).
+3. Webpack, Vite, Rollup
+These are module bundlers. In modern web development, you often write modular JavaScript, CSS, and other assets. Browsers, however, don't natively understand all module formats or benefit from having many small files. Bundlers solve this by:
+
+Bundling: Taking your modules and their dependencies and generating static assets (often single or a few .js files, .css files, etc.) that are optimized for the browser.
+Transforming: They can also transform your code using loaders and plugins (e.g., transpiling modern JavaScript, processing CSS).
+Webpack: A powerful and highly configurable module bundler.
+
+Vite: A newer bundler that leverages native browser ES Modules during development for incredibly fast hot module replacement (HMR) and uses Rollup for production builds.
+
+Rollup: Primarily focused on bundling JavaScript libraries. It's known for producing smaller bundles.
+
+Let's look at a basic Webpack setup:
+
+Install Webpack and its CLI as dev dependencies:
+
+Bash
+
+npm install --save-dev webpack webpack-cli
+# or
+yarn add --dev webpack webpack-cli
+Create a webpack.config.js file in your project root:
+
+JavaScript
+
+// webpack.config.js
+const path = require('path');
+
+module.exports = {
+  mode: 'development', // or 'production'
+  entry: './src/index.js', // Your main entry point
+  output: {
+    filename: 'bundle.js', // The output bundle file name
+    path: path.resolve(__dirname, 'dist'), // Output directory
+  },
+};
+Create a src folder with an index.js file (and any other modules).
+
+Add a script to your package.json:
+
+JSON
+
+"scripts": {
+  "build": "webpack --config webpack.config.js"
+}
+Run the build command: npm run build (or yarn build). This will create a dist folder with bundle.js.
+
+In your HTML, link to the bundled file:
+
+HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Webpack Example</title>
+</head>
+<body>
+  <script src="./dist/bundle.js"></script>
+</body>
+</html>
+Vite offers a more streamlined developer experience out of the box. To try Vite:
+
+Create a new Vite project:
+
+Bash
+
+npm create vite@latest my-vite-app -- --template vanilla
+cd my-vite-app
+npm install
+npm run dev
+Vite will typically handle bundling and serving your application with hot module replacement without extensive configuration.
+
+Practice Assignment 3:
+
+Set up a simple project with a few JavaScript modules that import each other.
+Configure either Webpack or Vite to bundle these modules into a single file for the browser.
+Create an HTML file that includes this bundled JavaScript file.
+4. Transpiling with Babel
+Modern JavaScript features (ES6+) are not always fully supported by all browsers. Transpilers like Babel convert newer JavaScript syntax into older, more widely compatible versions (typically ES5).
+
+Install Babel core and the preset for the target environment (e.g., ES2015):
+
+Bash
+
+npm install --save-dev @babel/core @babel/preset-env
+# or
+yarn add --dev @babel/core @babel/preset-env
+Create a .babelrc or babel.config.js file to configure Babel:
+
+JSON
+
+// .babelrc
+{
+  "presets": ["@babel/preset-env"]
+}
+You'll usually integrate Babel with your module bundler (Webpack, Vite, Rollup) using appropriate loaders or plugins. For Webpack, you'd use babel-loader.
+Bash
+
+npm install --save-dev babel-loader
+# or
+yarn add --dev babel-loader
+Update your webpack.config.js to use babel-loader:
+JavaScript
+
+// webpack.config.js
+const path = require('path');
+
+module.exports = {
+  mode: 'development',
+  entry: './src/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
+      },
+    ],
+  },
+};
+Now, when Webpack bundles your code, it will first pass .js files (excluding those in node_modules) through Babel for transpilation.
+
+Practice Assignment 4:
+
+Take the project from the previous assignment (with module bundling).
+Install and configure Babel to transpile your JavaScript code.
+Ensure your bundled output is now in a more widely compatible JavaScript version. You might need to use modern ES6+ syntax in your source files to see the effect of transpilation.
+5. Linting with ESLint, Formatting with Prettier
+Maintaining a consistent code style and catching potential errors early are crucial for team collaboration and code quality.
+
+ESLint: A static code analysis tool used for identifying problematic patterns in JavaScript code. It helps enforce coding standards and prevent bugs.
+Prettier: An opinionated code formatter that automatically formats your code to ensure consistency.
+Setting up ESLint:
+
+Install ESLint and a recommended configuration (e.g., Airbnb's style guide):
+
+Bash
+
+npm install --save-dev eslint eslint-config-airbnb-base eslint-plugin-import
+# or
+yarn add --dev eslint eslint-config-airbnb-base eslint-plugin-import
+Initialize ESLint configuration:
+
+Bash
+
+npx eslint --init
+# Follow the prompts (e.g., "To check syntax, find problems, and enforce code style", "JavaScript modules (import/export)", etc.)
+# Or, if you want to use Airbnb, create a `.eslintrc.js` file:
+JavaScript
+
+// .eslintrc.js (using Airbnb style guide)
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
+  extends: [
+    'airbnb-base',
+    'plugin:import/recommended',
+  ],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  rules: {
+    // Add or override rules here if needed
+  },
+};
+Add an npm script to run ESLint:
+JSON
+
+// package.json
+"scripts": {
+  "lint": "eslint ."
+}
+Run the linter: npm run lint. It will report any style or potential error issues.
+Setting up Prettier:
+
+Install Prettier:
+
+Bash
+
+npm install --save-dev prettier
+# or
+yarn add --dev prettier
+Create a .prettierrc.js (or .prettierrc, etc.) to configure Prettier (optional, as it has default settings):
+
+JavaScript
+
+// .prettierrc.js
+module.exports = {
+  semi: false,
+  singleQuote: true,
+  trailingComma: 'es5',
+};
+Add an npm script to run Prettier:
+JSON
+
+// package.json
+"scripts": {
+  "format": "prettier --write ."
+}
+Run the formatter: npm run format. This will automatically format your code.
+You often integrate ESLint and Prettier so they work well together. You might need additional configurations like eslint-config-prettier and eslint-plugin-prettier.
+
+Practice Assignment 5:
+
+Set up ESLint and Prettier in your project.
+Write some JavaScript code with intentional style inconsistencies or potential issues.
+Run the ESLint linter and see the reported problems.
+Run the Prettier formatter and observe how it automatically adjusts your code style.
+6. Debugging, Chrome DevTools
+The browser's developer tools are invaluable for debugging JavaScript. Chrome DevTools is particularly powerful.
+
+Key Features for JavaScript Debugging:
+
+Sources Panel: Allows you to view your project's source files, set breakpoints, step through code, and inspect variables.
+Console Panel: Displays logs, errors, and allows you to execute JavaScript expressions in the context of the current page.
+Breakpoints: You can set breakpoints in your code (either in the Sources panel or by using the debugger; statement) to pause execution and inspect the current state.
+Watch Expressions: You can add variables or expressions to the Watch panel to monitor their values as you step through your code.
+Call Stack: Shows the sequence of function calls that led to the current point of execution.
+Scope: Displays the values of variables in the current and enclosing scopes.
+Example:
+
+JavaScript
+
+function calculateSum(a, b) {
+  let result = a + b;
+  debugger; // Execution will pause here in DevTools
+  result = result * 2;
+  console.log('The result is:', result);
+  return result;
+}
+
+calculateSum(5, 10);
+Open your HTML page in Chrome, open DevTools (usually by pressing F12), go to the Sources panel, find your script, and you'll see the debugger; statement has paused the execution. You can then step over the next line, step into functions, inspect the result, a, and b variables, and see the call stack.
+
+Practice Assignment 6:
+
+Write a JavaScript function with a bug (e.g., an off-by-one error in a loop).
+Create an HTML file that calls this function and displays the result.
+Use Chrome DevTools to debug your JavaScript code. Set breakpoints, step through the execution, and inspect variables to identify and fix the bug.
+7. TDD with Jest
+Test-Driven Development (TDD) is a development approach where you write tests before you write the actual code. Jest is a popular JavaScript testing framework, especially known for its ease of use and built-in features.
+
+Install Jest as a dev dependency:
+
+Bash
+
+npm install --save-dev jest
+# or
+yarn add --dev jest
+Add a test script to your package.json:
+
+JSON
+
+"scripts": {
+  "test": "jest"
+}
+Create a test file. Jest typically looks for files with the .test.js or .spec.js extension, often in a __tests__ directory. For example, if you have a file math.js, your test file might be __tests__/math.test.js.
+JavaScript
+
+// math.js
+function add(a, b) {
+  return a + b;
+}
+
+module.exports = { add };
+JavaScript
+
+// __tests__/math.test.js
+const { add } = require('../math');
+
+describe('add', () => {
+  test('should return the sum of two numbers
