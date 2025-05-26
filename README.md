@@ -1222,3 +1222,218 @@ const { add } = require('../math');
 
 describe('add', () => {
   test('should return the sum of two numbers
+
+  ---
+# 🚦 MODULE 5: Data Structures, Algorithms & Patterns
+  ---
+  ## 🔢 1. Arrays, Stacks, Queues, Linked Lists
+
+ 📚 Concepts
+
+Arrays: Fixed-size, index-based data structure.
+
+Stacks (LIFO): push, pop — used in backtracking, expression evaluation.
+
+Queues (FIFO): enqueue, dequeue — used in BFS, task scheduling.
+
+Linked Lists: Nodes linked via pointers — singly, doubly.
+
+## 💡 Examples (JavaScript)
+
+// Stack
+class Stack {
+  constructor() { this.stack = []; }
+  push(val) { this.stack.push(val); }
+  pop() { return this.stack.pop(); }
+}
+
+// Queue
+class Queue {
+  constructor() { this.queue = []; }
+  enqueue(val) { this.queue.push(val); }
+  dequeue() { return this.queue.shift(); }
+}
+
+## 🧠 Practice
+
+Implement a circular queue.
+
+Reverse a linked list iteratively and recursively.
+
+Use a stack to check for balanced parentheses.
+
+## 🔁 2. Recursion, Sorting & Searching
+
+📚 Concepts
+
+Recursion: Function calls itself.
+
+Sorting: Bubble, Selection, Insertion, Merge, Quick.
+
+Searching: Linear, Binary (sorted array).
+
+## 💡 Examples
+
+// Recursive factorial
+function factorial(n) {
+  if (n <= 1) return 1;
+  return n * factorial(n - 1);
+}
+
+// Binary search
+function binarySearch(arr, target) {
+  let low = 0, high = arr.length - 1;
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    if (arr[mid] === target) return mid;
+    arr[mid] < target ? low = mid + 1 : high = mid - 1;
+  }
+  return -1;
+}
+
+🧠 Practice
+
+Implement merge sort and quicksort.
+
+Use recursion to generate Fibonacci numbers.
+
+Implement binary search on a rotated array.
+
+## 📏 3. Big-O Notation
+
+📚 Concepts
+
+Measures algorithm efficiency.
+
+Common complexities:
+
+Constant: O(1)
+
+Linear: O(n)
+
+Logarithmic: O(log n)
+
+Quadratic: O(n^2)
+
+Exponential: O(2^n)
+
+💡 Examples
+
+// O(n)
+function sumArray(arr) {
+  return arr.reduce((acc, val) => acc + val, 0);
+}
+
+// O(1)
+function getFirst(arr) {
+  return arr[0];
+}
+
+🧠 Practice
+
+Analyze time complexity of your previous sorting algorithms.
+
+Compare different searching techniques using Big-O.
+
+## 🧩 4. Design Patterns: Module, Observer, Factory, Singleton
+
+📚 Concepts
+
+Module: Encapsulation with closures.
+
+Observer: Subscribe/notify.
+
+Factory: Creates objects without exposing instantiation logic.
+
+Singleton: Single instance throughout app.
+
+💡 Examples
+
+// Singleton
+const Singleton = (function() {
+  let instance;
+  function createInstance() {
+    return { value: Math.random() };
+  }
+  return {
+    getInstance() {
+      if (!instance) instance = createInstance();
+      return instance;
+    }
+  };
+})();
+
+🧠 Practice
+---
+Create a notification system using the Observer pattern.
+
+Use a factory to create different types of users.
+
+Convert an IIFE into a Module pattern.
+
+## 🔬 5. Functional Programming in JS
+
+📚 Concepts
+
+Pure functions, immutability, first-class functions
+
+map, filter, reduce
+
+💡 Examples
+
+const numbers = [1, 2, 3, 4, 5];
+const squares = numbers.map(x => x * x);
+const evens = numbers.filter(x => x % 2 === 0);
+const sum = numbers.reduce((a, b) => a + b, 0);
+
+🧠 Practice
+
+Create a pure function to flatten nested arrays.
+
+Use reduce to group elements.
+
+Refactor imperative code into functional code.
+
+## ⚙️ 6. State Machines with XState
+
+📚 Concepts
+---
+Declarative state management
+
+States, events, transitions
+
+Visualize with https://stately.ai
+
+## 💡 Example
+
+import { createMachine, interpret } from 'xstate';
+
+const toggleMachine = createMachine({
+  id: 'toggle',
+  initial: 'inactive',
+  states: {
+    inactive: { on: { TOGGLE: 'active' } },
+    active: { on: { TOGGLE: 'inactive' } }
+  }
+});
+
+const service = interpret(toggleMachine).start();
+service.send('TOGGLE');
+
+## 🧠 Practice
+
+Model a login/logout flow.
+
+Create a state machine for a traffic light.
+
+Use XState with React to manage UI state.
+
+🛠️ Project: Code Interview Prep Kit
+
+## 🎯 Objective
+
+Build a repository of 10+ custom implementations of key data structures and algorithms.
+
+✅ Checklist
+
+
