@@ -1435,5 +1435,250 @@ Use XState with React to manage UI state.
 Build a repository of 10+ custom implementations of key data structures and algorithms.
 
 ✅ Checklist
+---
+# 🌍 MODULE 6: Advanced Concepts & Real-World Integration
+---
+👨‍💻 1. Object-Oriented Programming in JavaScript
+
+📚 Concepts
+
+Classes & Constructors
+
+Prototypes & Prototype Chain
+
+Inheritance (ES5 & ES6)
+
+💡 Examples
+
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  greet() {
+    return `Hello, I'm ${this.name}`;
+  }
+}
+
+class Student extends Person {
+  constructor(name, grade) {
+    super(name);
+    this.grade = grade;
+  }
+  info() {
+    return `${this.name} is in grade ${this.grade}`;
+  }
+}
+
+🧠 Practice
+
+Create a Vehicle base class and extend it with Car and Bike.
+
+Implement a method override in a subclass.
+
+Create a custom prototype object and link it manually using Object.create().
+
+🔄 2. Reactive Programming with RxJS
+
+📚 Concepts
+
+Observables, Observers, Subscriptions
+
+Operators: map, filter, merge, combineLatest, switchMap
+
+💡 Example
+
+import { fromEvent } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+fromEvent(document, 'click')
+  .pipe(map(event => `Click at ${event.clientX}, ${event.clientY}`))
+  .subscribe(console.log);
+
+🧠 Practice
+
+Create an input field with debounced live search using RxJS.
+
+Use combineLatest to combine values from two input fields.
+
+Use interval and take to build a countdown timer.
+
+🧱 3. Web Components
+
+📚 Concepts
+
+Custom Elements
+
+Shadow DOM
+
+HTML Templates
+
+💡 Example
+
+class MyCard extends HTMLElement {
+  constructor() {
+    super();
+    const shadow = this.attachShadow({ mode: 'open' });
+    shadow.innerHTML = `
+      <style>div { padding: 1em; border: 1px solid #ccc; }</style>
+      <div><slot></slot></div>
+    `;
+  }
+}
+customElements.define('my-card', MyCard);
+
+🧠 Practice
+
+Create a user-avatar component.
+
+Build a modal-dialog using Shadow DOM.
+
+Use slots for flexible templating.
+
+🛰️ 4. Service Workers & PWA Concepts
+
+📚 Concepts
+
+Service Worker lifecycle: install, activate, fetch
+
+Caching strategies
+
+Manifest.json
+
+Offline-first & push notifications
+
+💡 Example
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open('v1').then(cache => cache.add('/index.html'))
+  );
+});
+
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request).then(response => response || fetch(event.request))
+  );
+});
+
+🧠 Practice
+
+Build a cache-first image gallery.
+
+Register a service worker and log fetch events.
+
+Create a manifest.json and make your site installable.
+
+🛡️ 5. Security: XSS, CSP, JWT
+
+📚 Concepts
+
+XSS: Cross-site scripting, sanitize input
+
+CSP: Content Security Policy
+
+JWT: JSON Web Tokens for stateless auth
+
+💡 Examples
+
+// Basic JWT usage
+const token = jwt.sign({ userId: 123 }, 'secret', { expiresIn: '1h' });
+jwt.verify(token, 'secret');
+
+🧠 Practice
+
+Simulate an XSS attack and fix it with input sanitization.
+
+Set a basic CSP header.
+
+Implement a login flow using JWT (encode/decode on frontend).
+
+📡 6. Working with WebSockets
+
+📚 Concepts
+
+Real-time data communication
+
+WebSocket API: new WebSocket(), onmessage, send
+
+💡 Example
+
+const socket = new WebSocket('ws://localhost:8080');
+socket.onopen = () => socket.send('Hello Server!');
+socket.onmessage = e => console.log('Message:', e.data);
+
+🧠 Practice
+
+Connect to a public WebSocket echo server.
+
+Build a simple real-time chat with ws in Node.js.
+
+Broadcast a message to multiple clients.
+
+🔡 7. TypeScript Introduction
+
+📚 Concepts
+
+Type annotations, interfaces, enums
+
+Classes and generics
+
+Type checking and tooling
+
+💡 Example
+
+function greet(name: string): string {
+  return `Hello, ${name}`;
+}
+
+interface User {
+  id: number;
+  username: string;
+}
+
+const user: User = { id: 1, username: 'alice' };
+
+🧠 Practice
+
+Convert a JS file to TypeScript.
+
+Define interfaces for API response objects.
+
+Create a generic function to reverse an array.
+
+🏁 Capstone Project: Full-Feature JS App
+
+🎯 Objective
+
+Build a complete, framework-free JavaScript application:
+
+Options:
+
+Realtime Chat App (WebSocket, RxJS, OOP)
+
+E-commerce SPA (Routing, Local Storage, Web Components)
+
+✅ Requirements
+
+Modular OOP-based architecture
+
+TypeScript types (optional but encouraged)
+
+Web Components for UI
+
+RxJS for streams/state
+
+Service Workers for offline support
+
+JWT authentication mock (optional)
+
+Deployment-ready with PWA features
+
+💼 Deliverables
+
+Fully working app (hosted or demoable)
+
+Codebase on GitHub
+
+README with architecture and features
 
 
