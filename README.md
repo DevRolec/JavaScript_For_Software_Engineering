@@ -1433,6 +1433,214 @@ Use XState with React to manage UI state.
 ## 🎯 Objective
 
 Build a repository of 10+ custom implementations of key data structures and algorithms.
+---
+// JavaScript Data Structures and Algorithms Repository
+
+// 1. Stack
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+  push(element) {
+    this.items.push(element);
+  }
+  pop() {
+    return this.items.pop();
+  }
+  peek() {
+    return this.items[this.items.length - 1];
+  }
+  isEmpty() {
+    return this.items.length === 0;
+  }
+  size() {
+    return this.items.length;
+  }
+}
+
+// 2. Queue
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+  enqueue(element) {
+    this.items.push(element);
+  }
+  dequeue() {
+    return this.items.shift();
+  }
+  front() {
+    return this.items[0];
+  }
+  isEmpty() {
+    return this.items.length === 0;
+  }
+  size() {
+    return this.items.length;
+  }
+}
+
+// 3. Linked List
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+  append(value) {
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      return;
+    }
+    let current = this.head;
+    while (current.next) {
+      current = current.next;
+    }
+    current.next = newNode;
+  }
+}
+
+// 4. Binary Search
+function binarySearch(arr, target) {
+  let left = 0;
+  let right = arr.length - 1;
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    if (arr[mid] === target) return mid;
+    if (arr[mid] < target) left = mid + 1;
+    else right = mid - 1;
+  }
+  return -1;
+}
+
+// 5. Hash Table
+class HashTable {
+  constructor(size = 50) {
+    this.table = new Array(size);
+  }
+  hash(key) {
+    let total = 0;
+    for (let char of key) {
+      total += char.charCodeAt(0);
+    }
+    return total % this.table.length;
+  }
+  set(key, value) {
+    const index = this.hash(key);
+    if (!this.table[index]) this.table[index] = [];
+    this.table[index].push([key, value]);
+  }
+  get(key) {
+    const index = this.hash(key);
+    const bucket = this.table[index];
+    if (bucket) {
+      for (let [k, v] of bucket) {
+        if (k === key) return v;
+      }
+    }
+    return undefined;
+  }
+}
+
+// 6. Graph (Adjacency List)
+class Graph {
+  constructor() {
+    this.adjacencyList = {};
+  }
+  addVertex(vertex) {
+    if (!this.adjacencyList[vertex]) {
+      this.adjacencyList[vertex] = [];
+    }
+  }
+  addEdge(v1, v2) {
+    this.adjacencyList[v1].push(v2);
+    this.adjacencyList[v2].push(v1);
+  }
+}
+
+// 7. Binary Search Tree
+class TreeNode {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+class BST {
+  constructor() {
+    this.root = null;
+  }
+  insert(value) {
+    const newNode = new TreeNode(value);
+    if (!this.root) {
+      this.root = newNode;
+      return;
+    }
+    let current = this.root;
+    while (true) {
+      if (value < current.value) {
+        if (!current.left) {
+          current.left = newNode;
+          return;
+        }
+        current = current.left;
+      } else {
+        if (!current.right) {
+          current.right = newNode;
+          return;
+        }
+        current = current.right;
+      }
+    }
+  }
+}
+
+// 8. Depth First Search (DFS)
+function dfs(graph, start, visited = new Set()) {
+  console.log(start);
+  visited.add(start);
+  for (let neighbor of graph[start]) {
+    if (!visited.has(neighbor)) {
+      dfs(graph, neighbor, visited);
+    }
+  }
+}
+
+// 9. Breadth First Search (BFS)
+function bfs(graph, start) {
+  const queue = [start];
+  const visited = new Set();
+  visited.add(start);
+
+  while (queue.length) {
+    const vertex = queue.shift();
+    console.log(vertex);
+    for (let neighbor of graph[vertex]) {
+      if (!visited.has(neighbor)) {
+        visited.add(neighbor);
+        queue.push(neighbor);
+      }
+    }
+  }
+}
+
+// 10. Quick Sort
+function quickSort(arr) {
+  if (arr.length <= 1) return arr;
+  const pivot = arr[arr.length - 1];
+  const left = [], right = [];
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] < pivot) left.push(arr[i]);
+    else right.push(arr[i]);
+  }
+  return [...quickSort(left), pivot, ...quickSort(right)];
+}
+---
 
 ✅ Checklist
 ---
