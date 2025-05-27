@@ -257,10 +257,11 @@ Copy
 Edit
 
 ✅ Key Takeaways
-Keyword	| Function | Scope |	Block Scope	| Hoisting | Re-declaration
-var | ✅ |Yes	|❌No |	✅Yes |	✅Allowed
-let	| ✅ | Yes	| ✅Yes	 |❌No	| ❌Not allowed
-const 	✅ | Yes	| ✅Yes	| ❌No |	❌Not allowed
+| Keyword	| Function | Scope |	Block Scope	| Hoisting | Re-declaration |
+|----------|-------|------|-----|------|-------------|
+| var | ✅ |Yes	|❌No |	✅Yes |	✅Allowed |
+| let	| ✅ | Yes	| ✅Yes	 |❌No	| ❌Not_allowed |
+| const 	✅ | Yes	| ✅Yes	| ❌No |	❌Not_allowed |
 
 Use let or const to avoid unexpected behavior from var.
 
