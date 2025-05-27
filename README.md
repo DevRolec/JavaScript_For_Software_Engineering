@@ -18,9 +18,106 @@ a = 10; b = 20;
 console.log(a, b, c);
 ```
 ---
-Lesson 1.2: Scope (Global, Local, Block)
+## Lesson 1.2: Scope (Global, Local, Block)
 Practice:
+---
+ 1. Global Scope
+A variable has global scope if it’s declared outside of any function or block.
 
+✅ Accessible anywhere in your script.
+
+js
+Copy
+Edit
+let globalVar = "I'm global";
+
+function showGlobal() {
+  console.log(globalVar); // Accessible here
+}
+
+showGlobal();
+console.log(globalVar); // Accessible here too
+🔍 2. Local (Function) Scope
+Variables declared inside a function using let, const, or var are local to that function.
+
+⛔ Not accessible outside the function.
+
+js
+Copy
+Edit
+function testLocalScope() {
+  let localVar = "I'm local";
+  console.log(localVar); // ✅ Accessible here
+}
+
+testLocalScope();
+// console.log(localVar); // ❌ Error: localVar is not defined
+🔍 3. Block Scope
+Variables declared with let and const are block-scoped. A block is anything inside {} like in if, for, or {} blocks.
+
+⛔ Not accessible outside the block.
+
+js
+Copy
+Edit
+function testBlockScope() {
+  let x = 1;
+
+  if (true) {
+    let x = 2; // This 'x' is different from the one above
+    console.log("Inside block:", x); // 2
+  }
+
+  console.log("Outside block:", x); // 1
+}
+
+testBlockScope();
+🔄 Let's compare it using var:
+js
+Copy
+Edit
+function testVarScope() {
+  var x = 1;
+
+  if (true) {
+    var x = 2; // Same variable! `var` is not block-scoped
+    console.log("Inside block:", x); // 2
+  }
+
+  console.log("Outside block:", x); // 2 (surprise!)
+}
+
+testVarScope();
+👉 Lesson: let and const are safer to use due to block scoping. Avoid var unless necessary.
+
+🧪 Practice Exercise
+🔹 Example 1:
+What will this code print?
+
+js
+Copy
+Edit
+let x = "global";
+
+function scopeTest() {
+  let x = "local";
+  if (true) {
+    let x = "block";
+    console.log("Inside block:", x);
+  }
+  console.log("Inside function:", x);
+}
+
+scopeTest();
+console.log("In global:", x);
+💡 Expected Output:
+wasm
+Copy
+Edit
+Inside block: block
+Inside function: local
+In global: global
+---
 js
 Copy
 Edit
@@ -159,6 +256,37 @@ php-template
 Copy
 Edit
 
+✅ Key Takeaways
+Keyword	| Function | Scope |	Block Scope	| Hoisting | Re-declaration
+var | ✅ |Yes	|❌No |	✅Yes |	✅Allowed
+let	| ✅ | Yes	| ✅Yes	 |❌No	| ❌Not allowed
+const 	✅ | Yes	| ✅Yes	| ❌No |	❌Not allowed
+
+Use let or const to avoid unexpected behavior from var.
+
+Prefer const by default; use let only when reassignment is needed.
+
+Understand scope to avoid bugs and write maintainable code.
+
+🧠 Challenge
+Can you predict the output of this code?
+
+js
+Copy
+Edit
+const a = 10;
+
+function example() {
+  const a = 20;
+  {
+    const a = 30;
+    console.log("Block scope:", a);
+  }
+  console.log("Function scope:", a);
+}
+
+example();
+console.log("Global scope:", a);
 ---
 
 ## 🌐 HTML VERSION
