@@ -1,9 +1,9 @@
 # JavaScript for Software Engineering
+---
 # 📘 Module 1: Core JavaScript & Language Essentials
 
 ## Week 1: Variables, Scope, and Hoisting
-
-### Lesson 1.1: Variables (var, let, const)
+ Lesson 1.1: Variables (var, let, const)
 **Topics:**
 - Variable declaration rules
 - Differences: `var`, `let`, `const`
@@ -52,6 +52,7 @@ function testLocalScope() {
 
 testLocalScope();
 // console.log(localVar); // ❌ Error: localVar is not defined
+
 🔍 3. Block Scope
 Variables declared with let and const are block-scoped. A block is anything inside {} like in if, for, or {} blocks.
 
@@ -155,7 +156,7 @@ b.push(3);
 console.log(a);
 Lesson 2.2: Type Coercion vs Conversion
 Practice:
-
+<br>
 js
 Copy
 Edit
