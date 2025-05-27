@@ -261,7 +261,7 @@ Edit
 |----------|-------|------|-----|------|-------------|
 | var | ✅ |Yes	|❌No |	✅Yes |	✅Allowed |
 | let	| ✅ | Yes	| ✅Yes	 |❌No	| ❌Not_allowed |
-| const 	✅ | Yes	| ✅Yes	| ❌No |	❌Not_allowed |
+| const |	✅ | Yes	| ✅Yes	| ❌No |	❌Not_allowed |
 
 Use let or const to avoid unexpected behavior from var.
 
