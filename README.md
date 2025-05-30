@@ -26,7 +26,7 @@ A variable has global scope if it’s declared outside of any function or block.
 
 ✅ Accessible anywhere in your script.
 
-
+```js
 let globalVar = "I'm global";
 
 function showGlobal() {
@@ -35,12 +35,13 @@ function showGlobal() {
 
 showGlobal();
 console.log(globalVar); // Accessible here too
+```
 🔍 2. Local (Function) Scope
 Variables declared inside a function using let, const, or var are local to that function.
 
 ⛔ Not accessible outside the function.
 
-
+```js
 function testLocalScope() {
   let localVar = "I'm local";
   console.log(localVar); // ✅ Accessible here
@@ -48,13 +49,13 @@ function testLocalScope() {
 
 testLocalScope();
 // console.log(localVar); // ❌ Error: localVar is not defined
-
+```
 🔍 3. Block Scope
 Variables declared with let and const are block-scoped. A block is anything inside {} like in if, for, or {} blocks.
 
 ⛔ Not accessible outside the block.
 
-
+```js
 function testBlockScope() {
   let x = 1;
 
@@ -65,10 +66,10 @@ function testBlockScope() {
 
   console.log("Outside block:", x); // 1
 }
-
+```
 testBlockScope();
 🔄 Let's compare it using var:
-
+```js
 function testVarScope() {
   var x = 1;
 
@@ -79,7 +80,7 @@ function testVarScope() {
 
   console.log("Outside block:", x); // 2 (surprise!)
 }
-
+```
 testVarScope();
 👉 Lesson: let and const are safer to use due to block scoping. Avoid var unless necessary.
 
@@ -87,7 +88,7 @@ testVarScope();
 🔹 Example 1:
 What will this code print?
 
-
+```js
 let x = "global";
 
 function scopeTest() {
@@ -102,12 +103,12 @@ function scopeTest() {
 scopeTest();
 console.log("In global:", x);
 💡 Expected Output:
-
+```
 Inside block: block
 Inside function: local
 In global: global
 ---
-
+```js
 function testScope() {
   let x = 1;
   if (true) {
@@ -116,22 +117,23 @@ function testScope() {
   }
   console.log("Outside:", x);
 }
-
+```
 Lesson 1.3: Hoisting
 Practice:
 
-
+```js
 console.log(hoistedVar);
 var hoistedVar = "I'm hoisted";
 
 console.log(hoistedLet);
 let hoistedLet = "I'm not hoisted";
+```
 ---
 Week 2: Data Types & Type Conversions
 Lesson 2.1: Primitives vs References
 Practice:
 
-
+```js
 const a = [1, 2];
 const b = a;
 b.push(3);
@@ -143,36 +145,38 @@ Practice:
 console.log(5 + "5");
 console.log(Number("123"));
 console.log(Boolean(0));
+```
 ---
 Week 3: Control Flow
 Lesson 3.1: Conditionals
 Practice:
-
+```js
 let age = 20;
 let message = age >= 18 ? "Adult" : "Minor";
 console.log(message);
+```
 Lesson 3.2: Loops
 Practice:
 
-
+```js
 for (let i = 1; i <= 10; i++) {
   if (i % 2 === 0) continue;
   console.log(i);
 }
+```
 ---
 Week 4: Functions and Closures
 Lesson 4.1: Function Types
 Practice:
 
-js
-Copy
-Edit
+```js
 const add = (a, b) => a + b;
 console.log(add(3, 4));
+```
 Lesson 4.2: Closures & IIFE
 Practice:
 
-
+```js
 function outer() {
   let count = 0;
   return function inner() {
@@ -187,26 +191,32 @@ counter();
 (function() {
   console.log("IIFE ran!");
 })();
+```
 ---
 Week 5: ES6+ Features
 Lesson 5.1: let/const and Block Scope
-
+```js
 {
   let scoped = "Inside block";
   console.log(scoped);
 }
-Lesson 5.2: Template Literals
 
+```
+Lesson 5.2: Template Literals
+```js
 let name = "Sara";
 let greeting = `Hello, ${name}!`;
 console.log(greeting);
+```
 Lesson 5.3: Destructuring
-
+```js
 const user = { name: "Tom", age: 25 };
 const { name, age } = user;
 
 const nums = [1, 2, 3];
 const [first, second] = nums;
+```
+
 ✅ Final Project: lodash-lite
 Build utility functions:
 
@@ -238,7 +248,7 @@ Understand scope to avoid bugs and write maintainable code.
 🧠 Challenge
 Can you predict the output of this code?
 
-
+```js
 const a = 10;
 
 function example() {
@@ -249,7 +259,7 @@ function example() {
   }
   console.log("Function scope:", a);
 }
-
+```
 example();
 console.log("Global scope:", a);
 ---
@@ -357,7 +367,7 @@ Final Project: Weather Dashboard
 🔎 What is a Callback?
 A callback is a function passed as an argument to another function, to be executed later.
 
-
+```js
 function fetchData(callback) {
   setTimeout(() => {
     callback('Data loaded!');
@@ -367,6 +377,7 @@ function fetchData(callback) {
 fetchData((message) => {
   console.log(message); // "Data loaded!"
 });
+```
 ✅ Practice
 Write a loadProfile(callback) function that waits 2 seconds and then logs "Profile Loaded".
 
@@ -376,22 +387,23 @@ Chain multiple callbacks to simulate a step-by-step loading process (e.g., authe
 🔎 What is a Promise?
 A Promise represents a value that may be available now, later, or never.
 
-
+```js
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => resolve("Data is here!"), 1000);
 });
 
 promise.then(data => console.log(data));
+```
 ✅ Practice
 Create a function getPosts() that returns a Promise resolved after 2 seconds.
-
+```js
 Chain .then() to log the post list.
-
+```
 ⏳ 3. Async/Await Pattern
 🔎 What is Async/Await?
 It’s syntactic sugar over Promises that makes your async code look synchronous and easier to read.
 
-
+```js
 async function loadData() {
   try {
     const result = await fetchData();
@@ -400,6 +412,7 @@ async function loadData() {
     console.error(err);
   }
 }
+```
 ✅ Practice
 Convert your getPosts() from earlier to use async/await.
 
@@ -409,10 +422,11 @@ Create a sequence of await calls that depend on each other.
 🔎 What is Fetch?
 The fetch() method lets you make HTTP requests in the browser.
 
-
+```js
 fetch('https://api.example.com/data')
   .then(res => res.json())
   .then(data => console.log(data));
+```
 ✅ Practice
 Use fetch() to call https://jsonplaceholder.typicode.com/posts.
 
@@ -422,13 +436,14 @@ Display the first 3 post titles in the browser.
 🔎 Why is it Important?
 Handle errors gracefully so your app doesn’t break when a server fails.
 
-
+```js
 fetch('https://wrong-url.com')
   .then(response => {
     if (!response.ok) throw new Error("Fetch failed!");
     return response.json();
   })
   .catch(error => console.error(error));
+```
 ✅ Practice
 Break a fetch() on purpose and catch the error.
 
@@ -440,7 +455,7 @@ Throttling: Limits function calls to once every X ms.
 
 Debouncing: Waits X ms after the last function call.
 
-
+```js
 function debounce(fn, delay) {
   let timer;
   return function (...args) {
@@ -448,6 +463,7 @@ function debounce(fn, delay) {
     timer = setTimeout(() => fn.apply(this, args), delay);
   };
 }
+```
 ✅ Practice
 Add a debounced search input using setTimeout.
 
@@ -457,12 +473,13 @@ Add a throttled window resize logger using setInterval.
 🔎 How JS Handles Async Code?
 JS has an event loop that manages sync code, microtasks (Promises), and macrotasks (setTimeout, etc.).
 
-
+```js
 console.log('Start');
 setTimeout(() => console.log('Timeout'), 0);
 Promise.resolve().then(() => console.log('Promise'));
 console.log('End');
 // Output: Start, End, Promise, Timeout
+```
 ✅ Practice
 Write your own example mixing Promise, setTimeout, and console.log.
 
@@ -510,36 +527,36 @@ DOM Selection Methods:
 document.getElementById('id'): Selects a single element by its unique id attribute.
 
 JavaScript
-
+```js
 const myElement = document.getElementById('myId');
 console.log(myElement);
 document.getElementsByClassName('class'): Returns an HTMLCollection (live updating) of all elements with the given class name.
+```
 
-JavaScript
-
+```js
 const allButtons = document.getElementsByClassName('button');
 console.log(allButtons);
 document.getElementsByTagName('tag'): Returns an HTMLCollection (live updating) of all elements with the given tag name.
-
+```
 JavaScript
-
+```js
 const allParagraphs = document.getElementsByTagName('p');
 console.log(allParagraphs);
 document.querySelector('selector'): Returns the first element that matches the specified CSS selector.
-
+```
 JavaScript
-
+```js
 const firstLink = document.querySelector('a');
 const specialDiv = document.querySelector('#special .item');
 console.log(firstLink, specialDiv);
 document.querySelectorAll('selector'): Returns a NodeList (static) of all elements that match the specified CSS selector.
-
+```
 JavaScript
-
+```js
 const allLinks = document.querySelectorAll('a');
 console.log(allLinks);
 DOM Traversal Properties:
-
+```
 Once you have an element, you can navigate the DOM tree using its properties:
 
 parentNode: The parent node of the element.
@@ -587,11 +604,12 @@ Adding Event Listeners:
 The primary way to handle events is using the addEventListener() method:
 
 JavaScript
-
+```js
 element.addEventListener('eventType', callbackFunction, useCapture);
 eventType: A string representing the type of event (e.g., 'click', 'mouseover', 'keydown').
 callbackFunction: The function to execute when the event occurs.
 useCapture (optional): A boolean indicating whether to use capturing or bubbling (default is false - bubbling).
+```
 HTML
 
 <button id="myButton">Click Me</button>
@@ -715,7 +733,7 @@ Form Validation:
 Client-side validation improves user experience by providing immediate feedback before submitting the form to the server.
 
 JavaScript
-
+```js
 form.addEventListener('submit', function(event) {
   let isValid = true;
 
@@ -742,6 +760,7 @@ function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
+ ```
 HTML5 Form Validation Attributes:
 
 HTML5 provides built-in validation attributes like required, minlength, maxlength, type="email", pattern, etc. The browser automatically handles some of this validation. You can access the validity state of form elements using the validity property.
@@ -806,7 +825,7 @@ getItem(key): Retrieves the value associated with the given key. Returns null if
 removeItem(key): Removes the key/value pair associated with the given key.
 clear(): Removes all key/value pairs stored in the storage.
 JavaScript
-
+```js
 // localStorage example
 localStorage.setItem('username', 'john.doe');
 const storedUsername = localStorage.getItem('username');
@@ -821,15 +840,16 @@ console.log('Session ID from sessionStorage:', sessionId);
 // sessionStorage.removeItem('sessionId');
 // sessionStorage.clear();
 You can store more complex data by serializing it to JSON:
-
+```
 JavaScript
-
+```js
 const user = { name: 'Alice', age: 30 };
 localStorage.setItem('userData', JSON.stringify(user));
 
 const storedUserString = localStorage.getItem('userData');
 const storedUser = JSON.parse(storedUserString);
 console.log('Stored user:', storedUser);
+```
 Practice Assignment 4:
 
 Create a simple web page with a text input and a button. When the button is clicked, save the text from the input into localStorage.
@@ -851,7 +871,7 @@ location.assign(url): Loads a new document at the given URL. Records the navigat
 location.replace(url): Loads a new document at the given URL. Does not record the navigation in the browser's history (you can't go back).
 location.reload(): Reloads the current page.
 JavaScript
-
+```js
 console.log('Current URL:', window.location.href);
 console.log('Pathname:', window.location.pathname);
 
@@ -869,9 +889,9 @@ history.go(n): Goes to the nth page in the history (e.g., -1 is back, 1 is forwa
 history.pushState(state, title, url): Adds a new state to the history stack. The browser URL changes to the url, but the page is not reloaded. You can associate state data with this history entry.
 history.replaceState(state, title, url): Modifies the current history entry. Similar to pushState but doesn't create a new entry.
 The popstate event is fired when the active history entry changes (e.g., when the user clicks the back or forward button, or when history.go(), history.back(), or history.forward() are called).
-
+```
 JavaScript
-
+```js
 // Example using pushState
 function navigate(page) {
   const newUrl = `/${page}`;
@@ -883,7 +903,7 @@ window.addEventListener('popstate', function(event) {
   console.log('Popstate event:', event);
   if (event.state && event.state.page) {
     updateContent(event.
-
+```
 
 ---
 # 🧱 MODULE 4: Modular Code, Tooling & Architecture
@@ -897,7 +917,7 @@ Modularity is crucial for organizing JavaScript code into reusable and maintaina
 CommonJS:
 
 Historically, Node.js adopted the CommonJS module system. You've likely seen this if you've worked with Node.js.
-
+```js
 require(): To import modules.
 module.exports: To export modules.
 JavaScript
@@ -921,9 +941,9 @@ const math = require('./math.js');
 console.log(math.add(5, 3)); // Output: 8
 console.log(math.subtract(10, 4)); // Output: 6
 ES Modules (ESM):
-
+```
 Modern JavaScript (ES6 and later) introduced its native module system. This is the standard for browser-based JavaScript and is increasingly supported in Node.js.
-
+```
 import: To import modules.
 export: To export modules (named or default).
 JavaScript
@@ -946,9 +966,9 @@ console.log(subtract(10, 4)); // Output: 6
 // import * as math from './math.js';
 // console.log(math.add(5, 3));
 You can also have a default export:
-
+```
 JavaScript
-
+```js
 // greeting.js (ESM)
 const message = "Hello!";
 export default message;
@@ -957,7 +977,7 @@ export default message;
 import greeting from './greeting.js';
 console.log(greeting); // Output: Hello!
 Browsers require special handling for ES Modules, typically using the <script type="module"> tag in your HTML.
-
+```
 HTML
 
 <!DOCTYPE html>
@@ -1045,7 +1065,7 @@ yarn add --dev webpack webpack-cli
 Create a webpack.config.js file in your project root:
 
 JavaScript
-
+```js
 // webpack.config.js
 const path = require('path');
 
@@ -1058,16 +1078,16 @@ module.exports = {
   },
 };
 Create a src folder with an index.js file (and any other modules).
-
+```
 Add a script to your package.json:
 
 JSON
-
+```json
 "scripts": {
   "build": "webpack --config webpack.config.js"
 }
 Run the build command: npm run build (or yarn build). This will create a dist folder with bundle.js.
-
+```
 In your HTML, link to the bundled file:
 
 HTML
@@ -1124,7 +1144,7 @@ npm install --save-dev babel-loader
 yarn add --dev babel-loader
 Update your webpack.config.js to use babel-loader:
 JavaScript
-
+```js
 // webpack.config.js
 const path = require('path');
 
@@ -1145,6 +1165,7 @@ module.exports = {
     ],
   },
 };
+```
 Now, when Webpack bundles your code, it will first pass .js files (excluding those in node_modules) through Babel for transpilation.
 
 Practice Assignment 4:
@@ -1174,7 +1195,7 @@ npx eslint --init
 # Follow the prompts (e.g., "To check syntax, find problems, and enforce code style", "JavaScript modules (import/export)", etc.)
 # Or, if you want to use Airbnb, create a `.eslintrc.js` file:
 JavaScript
-
+```js
 // .eslintrc.js (using Airbnb style guide)
 module.exports = {
   env: {
@@ -1221,13 +1242,15 @@ module.exports = {
   singleQuote: true,
   trailingComma: 'es5',
 };
+```
 Add an npm script to run Prettier:
 JSON
-
+```json
 // package.json
 "scripts": {
   "format": "prettier --write ."
 }
+```
 Run the formatter: npm run format. This will automatically format your code.
 You often integrate ESLint and Prettier so they work well together. You might need additional configurations like eslint-config-prettier and eslint-plugin-prettier.
 
@@ -1251,7 +1274,7 @@ Scope: Displays the values of variables in the current and enclosing scopes.
 Example:
 
 JavaScript
-
+```js
 function calculateSum(a, b) {
   let result = a + b;
   debugger; // Execution will pause here in DevTools
@@ -1259,7 +1282,7 @@ function calculateSum(a, b) {
   console.log('The result is:', result);
   return result;
 }
-
+```
 calculateSum(5, 10);
 Open your HTML page in Chrome, open DevTools (usually by pressing F12), go to the Sources panel, find your script, and you'll see the debugger; statement has paused the execution. You can then step over the next line, step into functions, inspect the result, a, and b variables, and see the call stack.
 
@@ -1288,20 +1311,22 @@ JSON
 Create a test file. Jest typically looks for files with the .test.js or .spec.js extension, often in a __tests__ directory. For example, if you have a file math.js, your test file might be __tests__/math.test.js.
 JavaScript
 
+```js
 // math.js
 function add(a, b) {
   return a + b;
 }
 
 module.exports = { add };
+```
 JavaScript
-
+```js
 // __tests__/math.test.js
 const { add } = require('../math');
 
 describe('add', () => {
   test('should return the sum of two numbers
-
+```
   ---
 # 🚦 MODULE 5: Data Structures, Algorithms & Patterns
   ---
@@ -1318,7 +1343,7 @@ Queues (FIFO): enqueue, dequeue — used in BFS, task scheduling.
 Linked Lists: Nodes linked via pointers — singly, doubly.
 
 ## 💡 Examples (JavaScript)
-
+```js
 // Stack
 class Stack {
   constructor() { this.stack = []; }
@@ -1332,7 +1357,7 @@ class Queue {
   enqueue(val) { this.queue.push(val); }
   dequeue() { return this.queue.shift(); }
 }
-
+```
 ## 🧠 Practice
 
 Implement a circular queue.
@@ -1352,7 +1377,7 @@ Sorting: Bubble, Selection, Insertion, Merge, Quick.
 Searching: Linear, Binary (sorted array).
 
 ## 💡 Examples
-
+```js
 // Recursive factorial
 function factorial(n) {
   if (n <= 1) return 1;
@@ -1369,7 +1394,7 @@ function binarySearch(arr, target) {
   }
   return -1;
 }
-
+```
 🧠 Practice
 
 Implement merge sort and quicksort.
@@ -1427,7 +1452,7 @@ Factory: Creates objects without exposing instantiation logic.
 Singleton: Single instance throughout app.
 
 💡 Examples
-
+```js
 // Singleton
 const Singleton = (function() {
   let instance;
@@ -1441,7 +1466,7 @@ const Singleton = (function() {
     }
   };
 })();
-
+```
 🧠 Practice
 ---
 Create a notification system using the Observer pattern.
@@ -1514,7 +1539,7 @@ Use XState with React to manage UI state.
 Build a repository of 10+ custom implementations of key data structures and algorithms.
 ---
 // JavaScript Data Structures and Algorithms Repository
-
+```js
 // 1. Stack
 class Stack {
   constructor() {
@@ -1719,6 +1744,7 @@ function quickSort(arr) {
   }
   return [...quickSort(left), pivot, ...quickSort(right)];
 }
+```
 ---
 
 ✅ Checklist
@@ -1736,7 +1762,7 @@ Prototypes & Prototype Chain
 Inheritance (ES5 & ES6)
 
 💡 Examples
-
+```js
 class Person {
   constructor(name) {
     this.name = name;
@@ -1755,7 +1781,7 @@ class Student extends Person {
     return `${this.name} is in grade ${this.grade}`;
   }
 }
-
+```
 🧠 Practice
 
 Create a Vehicle base class and extend it with Car and Bike.
@@ -1834,7 +1860,7 @@ Manifest.json
 Offline-first & push notifications
 
 💡 Example
-
+```js
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open('v1').then(cache => cache.add('/index.html'))
@@ -1846,7 +1872,7 @@ self.addEventListener('fetch', event => {
     caches.match(event.request).then(response => response || fetch(event.request))
   );
 });
-
+```
 🧠 Practice
 
 Build a cache-first image gallery.
@@ -1866,11 +1892,11 @@ CSP: Content Security Policy
 JWT: JSON Web Tokens for stateless auth
 
 💡 Examples
-
+```js
 // Basic JWT usage
 const token = jwt.sign({ userId: 123 }, 'secret', { expiresIn: '1h' });
 jwt.verify(token, 'secret');
-
+```
 🧠 Practice
 
 Simulate an XSS attack and fix it with input sanitization.
@@ -1888,11 +1914,11 @@ Real-time data communication
 WebSocket API: new WebSocket(), onmessage, send
 
 💡 Example
-
+```js
 const socket = new WebSocket('ws://localhost:8080');
 socket.onopen = () => socket.send('Hello Server!');
 socket.onmessage = e => console.log('Message:', e.data);
-
+```
 🧠 Practice
 
 Connect to a public WebSocket echo server.
@@ -1912,7 +1938,7 @@ Classes and generics
 Type checking and tooling
 
 💡 Example
-
+```js
 function greet(name: string): string {
   return `Hello, ${name}`;
 }
@@ -1921,7 +1947,7 @@ interface User {
   id: number;
   username: string;
 }
-
+```
 const user: User = { id: 1, username: 'alice' };
 
 🧠 Practice
