@@ -26,9 +26,7 @@ A variable has global scope if it’s declared outside of any function or block.
 
 ✅ Accessible anywhere in your script.
 
-js
-Copy
-Edit
+
 let globalVar = "I'm global";
 
 function showGlobal() {
@@ -42,9 +40,7 @@ Variables declared inside a function using let, const, or var are local to that 
 
 ⛔ Not accessible outside the function.
 
-js
-Copy
-Edit
+
 function testLocalScope() {
   let localVar = "I'm local";
   console.log(localVar); // ✅ Accessible here
@@ -58,9 +54,7 @@ Variables declared with let and const are block-scoped. A block is anything insi
 
 ⛔ Not accessible outside the block.
 
-js
-Copy
-Edit
+
 function testBlockScope() {
   let x = 1;
 
@@ -74,9 +68,7 @@ function testBlockScope() {
 
 testBlockScope();
 🔄 Let's compare it using var:
-js
-Copy
-Edit
+
 function testVarScope() {
   var x = 1;
 
@@ -95,9 +87,7 @@ testVarScope();
 🔹 Example 1:
 What will this code print?
 
-js
-Copy
-Edit
+
 let x = "global";
 
 function scopeTest() {
@@ -112,16 +102,12 @@ function scopeTest() {
 scopeTest();
 console.log("In global:", x);
 💡 Expected Output:
-wasm
-Copy
-Edit
+
 Inside block: block
 Inside function: local
 In global: global
 ---
-js
-Copy
-Edit
+
 function testScope() {
   let x = 1;
   if (true) {
@@ -134,9 +120,7 @@ function testScope() {
 Lesson 1.3: Hoisting
 Practice:
 
-js
-Copy
-Edit
+
 console.log(hoistedVar);
 var hoistedVar = "I'm hoisted";
 
@@ -147,9 +131,7 @@ Week 2: Data Types & Type Conversions
 Lesson 2.1: Primitives vs References
 Practice:
 
-js
-Copy
-Edit
+
 const a = [1, 2];
 const b = a;
 b.push(3);
@@ -157,9 +139,7 @@ console.log(a);
 Lesson 2.2: Type Coercion vs Conversion
 Practice:
 <br>
-js
-Copy
-Edit
+
 console.log(5 + "5");
 console.log(Number("123"));
 console.log(Boolean(0));
@@ -168,18 +148,13 @@ Week 3: Control Flow
 Lesson 3.1: Conditionals
 Practice:
 
-js
-Copy
-Edit
 let age = 20;
 let message = age >= 18 ? "Adult" : "Minor";
 console.log(message);
 Lesson 3.2: Loops
 Practice:
 
-js
-Copy
-Edit
+
 for (let i = 1; i <= 10; i++) {
   if (i % 2 === 0) continue;
   console.log(i);
@@ -197,9 +172,7 @@ console.log(add(3, 4));
 Lesson 4.2: Closures & IIFE
 Practice:
 
-js
-Copy
-Edit
+
 function outer() {
   let count = 0;
   return function inner() {
@@ -217,24 +190,18 @@ counter();
 ---
 Week 5: ES6+ Features
 Lesson 5.1: let/const and Block Scope
-js
-Copy
-Edit
+
 {
   let scoped = "Inside block";
   console.log(scoped);
 }
 Lesson 5.2: Template Literals
-js
-Copy
-Edit
+
 let name = "Sara";
 let greeting = `Hello, ${name}!`;
 console.log(greeting);
 Lesson 5.3: Destructuring
-js
-Copy
-Edit
+
 const user = { name: "Tom", age: 25 };
 const { name, age } = user;
 
@@ -253,9 +220,7 @@ _.uniq(arr)
 
 _.flatten(arr)
 
-php-template
-Copy
-Edit
+
 
 ✅ Key Takeaways
 | Keyword	| Function | Scope |	Block Scope	| Hoisting | Re-declaration |
@@ -273,9 +238,7 @@ Understand scope to avoid bugs and write maintainable code.
 🧠 Challenge
 Can you predict the output of this code?
 
-js
-Copy
-Edit
+
 const a = 10;
 
 function example() {
@@ -394,9 +357,7 @@ Final Project: Weather Dashboard
 🔎 What is a Callback?
 A callback is a function passed as an argument to another function, to be executed later.
 
-js
-Copy
-Edit
+
 function fetchData(callback) {
   setTimeout(() => {
     callback('Data loaded!');
@@ -415,9 +376,7 @@ Chain multiple callbacks to simulate a step-by-step loading process (e.g., authe
 🔎 What is a Promise?
 A Promise represents a value that may be available now, later, or never.
 
-js
-Copy
-Edit
+
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => resolve("Data is here!"), 1000);
 });
@@ -432,9 +391,7 @@ Chain .then() to log the post list.
 🔎 What is Async/Await?
 It’s syntactic sugar over Promises that makes your async code look synchronous and easier to read.
 
-js
-Copy
-Edit
+
 async function loadData() {
   try {
     const result = await fetchData();
@@ -452,9 +409,7 @@ Create a sequence of await calls that depend on each other.
 🔎 What is Fetch?
 The fetch() method lets you make HTTP requests in the browser.
 
-js
-Copy
-Edit
+
 fetch('https://api.example.com/data')
   .then(res => res.json())
   .then(data => console.log(data));
@@ -467,9 +422,7 @@ Display the first 3 post titles in the browser.
 🔎 Why is it Important?
 Handle errors gracefully so your app doesn’t break when a server fails.
 
-js
-Copy
-Edit
+
 fetch('https://wrong-url.com')
   .then(response => {
     if (!response.ok) throw new Error("Fetch failed!");
@@ -487,9 +440,7 @@ Throttling: Limits function calls to once every X ms.
 
 Debouncing: Waits X ms after the last function call.
 
-js
-Copy
-Edit
+
 function debounce(fn, delay) {
   let timer;
   return function (...args) {
@@ -506,9 +457,7 @@ Add a throttled window resize logger using setInterval.
 🔎 How JS Handles Async Code?
 JS has an event loop that manages sync code, microtasks (Promises), and macrotasks (setTimeout, etc.).
 
-js
-Copy
-Edit
+
 console.log('Start');
 setTimeout(() => console.log('Timeout'), 0);
 Promise.resolve().then(() => console.log('Promise'));
