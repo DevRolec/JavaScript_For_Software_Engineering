@@ -1484,12 +1484,12 @@ Pure functions, immutability, first-class functions
 map, filter, reduce
 
 💡 Examples
-
+```js
 const numbers = [1, 2, 3, 4, 5];
 const squares = numbers.map(x => x * x);
 const evens = numbers.filter(x => x % 2 === 0);
 const sum = numbers.reduce((a, b) => a + b, 0);
-
+```
 🧠 Practice
 
 Create a pure function to flatten nested arrays.
@@ -1703,8 +1703,9 @@ class BST {
     }
   }
 }
-
+```
 // 8. Depth First Search (DFS)
+```js
 function dfs(graph, start, visited = new Set()) {
   console.log(start);
   visited.add(start);
@@ -1714,8 +1715,9 @@ function dfs(graph, start, visited = new Set()) {
     }
   }
 }
-
+```
 // 9. Breadth First Search (BFS)
+```js
 function bfs(graph, start) {
   const queue = [start];
   const visited = new Set();
