@@ -38,7 +38,7 @@ a = 10; b = 20;
 console.log(a, b, c);
 ```
 
-## Assignment
+Challenge:
 1. create a variable name (name) & store your name.
 2. Create a variable name (whatDoYouWantToBeInFuture) "programmer"
 3. Create variable name (gender) & store your gender.
@@ -109,6 +109,25 @@ Challenge:
 2. Create var name (isJsHard) & store false as a value.
 3. Create a var name (favNum) & store your favourite Number
 4. Now add favNumber with the value of undefined.
+
+## Comparison Operators
+This allows us to compare two variables, it is further divided into two categories
+-> Relational Operators
+-> Equality Operators
+```js
+//Relational Operators >, <, >=, <=
+console.log(10 > 10); // true//false
+console.log(10 < 17);
+console.log(10 >= 10);
+console.log(10<= 10);
+
+// Equality operators
+// === strict equality (type + value)
+= lose equality operator (value)
+
+console.log(10===10);
+console.log(10 != 10);
+```
 
  
    
