@@ -45,6 +45,38 @@ console.log(a, b, c);
 4. Create variable name (linkedInHandle) & store your LinkedIn handle.
 5. Finally, log all variables to the console.
 ---
+## Basic Math in JavaScript.
+```js
+let num = 2;
+console.log(typeof num);
+console.log(num)
+console.log(num + num)// addition
+console.log(num - num)// subtraction
+console.log(num * num)// multiplication
+console.log(num / num)// division
+console.log(num % num)// Modular
+console.log(num ** num)// Power
+
+//increment
+let counter = 0;
+counter++
+console.log(counter);
+
+//decrement
+let counter = 10
+counter--
+console.log(counter)
+```
+Assignment:
+1. create variable name (firstFavNum) & store your favourite number.
+2. Create a variable name (secondFavNum) and store your second favourite number.
+3. Add(firstFavNum + secondFavNum)
+4. subtract
+5. multiply
+6. divide
+7. check (firstFavNum Mod secondFavNum)
+8. check the power of (firstFavNum)
+   
 ## Lesson 1.2: Scope (Global, Local, Block)
 Practice:
 ---
