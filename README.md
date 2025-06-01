@@ -8,6 +8,26 @@
 - Variable declaration rules
 - Differences: `var`, `let`, `const`
 
+## (reserved keyword) (variable name) (type of value)
+reserved keywords cant be used to name variables
+you cant add spaces when naming variales
+you cant write the first letter as a number when naming variables.
+
+Data stored using let and var can be changed, while data stored using "const" cant be changed.
+```js
+let name = Peter;
+name = "Roland"
+console.log(name);
+```
+In this case the name outputs Roland...
+however, in
+```js
+const name = "Roland"
+name = "Peter"
+console.log(name)
+```
+This will therefore output an error
+
 **Practice:**
 ```js
 var a = 1;
@@ -17,6 +37,13 @@ a = 10; b = 20;
 // c = 30;
 console.log(a, b, c);
 ```
+
+## Assignment
+1. create a variable name (name) & store your name.
+2. Create a variable name (whatDoYouWantToBeInFuture) "programmer"
+3. Create variable name (gender) & store your gender.
+4. Create variable name (linkedInHandle) & store your LinkedIn handle.
+5. Finally, log all variables to the console.
 ---
 ## Lesson 1.2: Scope (Global, Local, Block)
 Practice:
