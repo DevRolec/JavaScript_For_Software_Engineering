@@ -67,7 +67,7 @@ let counter = 10
 counter--
 console.log(counter)
 ```
-Assignment:
+Challenge:
 1. create variable name (firstFavNum) & store your favourite number.
 2. Create a variable name (secondFavNum) and store your second favourite number.
 3. Add(firstFavNum + secondFavNum)
@@ -76,6 +76,41 @@ Assignment:
 6. divide
 7. check (firstFavNum Mod secondFavNum)
 8. check the power of (firstFavNum)
+
+## Boolean Operations
+```js
+let isTrue = true;
+console.log(isTrue);
+//Not a Number
+let isTrue = NaN;
+
+let isTrue = false;
+console.log(isTrue);
+
+let number = 10;
+console.log(number + undefined);// NaN
+```
+Falsy Values in JavaScript
+-> false
+-> null
+-> undefined
+-> 0
+-> -0
+-> NaN
+-> '',"",``,(empty quotes)
+The difference between "Null" and "undefined" is that "null" can be set by parameters and "undefinde" by compilers.
+```js
+let notDefined = undefined;
+console.log(notDefined);
+//swap for "null"
+```
+Challenge:
+1. Create a var name (isJsProgLanguage) & store true as a value
+2. Create var name (isJsHard) & store false as a value.
+3. Create a var name (favNum) & store your favourite Number
+4. Now add favNumber with the value of undefined.
+
+ 
    
 ## Lesson 1.2: Scope (Global, Local, Block)
 Practice:
