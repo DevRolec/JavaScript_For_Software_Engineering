@@ -128,6 +128,73 @@ console.log(10<= 10);
 console.log(10===10);
 console.log(10 != 10);
 ```
+Challenge:
+1. Create a var name (firstFavNumb) & store your favourite number.
+2. Craete a var name (secondFavNumb) and store your second fav number
+3. check (firstFavNumb is  greater than secondFavNumb)
+4. check (firstFavNumb is less than secondFavNumber)
+5. check(firstFavNumb is less than and equal to secondFavNumb)
+6. Check (firstFavNumb is not equal to secondFavNumb)
+
+```js
+let firstFavNumb = 21;
+let secondFavNumb = 10;
+
+console.log(firstFavNumb > secondFavNumb);
+console.log(firstFavNumb < secondFavNumb);
+console.log(firstFavNumb >= seconfFavNumb);
+console.log (firstFavNumb !== secondFavNumb)
+```
+## Strings
+These are Texts datatypes... Whenever you use a text in Javascript, it is regarded as a string
+```js
+//Stringa
+"Hello World!"
+"Roland"
+let firstName = 'Roland'
+let SecondName = 'dev'
+//String Concatenation
+let fullname = firstName + " " + lastName
+console.log(fullName);
+
+//1. Concatenation
+let fullName = firstname.concat(secondName)
+console.log(fullName);
+
+//2. Append
+firstName += "something else";
+console.log(fullName);
+
+//3. length
+cosole.log(firstName.length);
+
+//4. cases
+console.log(firstName.toLowerCase());
+console.log(firstName.toUpperCase());
+
+//5. Slice
+cnsole.log(firstName.slice(0, 1));
+
+//6. Split & Join
+console.log(firstName.split("")) //this splits the string and returns an array
+console.log(firstName.split("").join("-"));
+
+//7. includes
+console.log(firstName.includes("X"));
+
+//8. Trim
+ console.log(firstName.trim()); //This trims out all forms of extra space
+
+
+let firstName = "Roland"
+let lastName = "Developer"
+
+let sumName = `${firstName} ${lastName} something`;
+
+console.log(sunName);
+
+
+```
 
  
    
