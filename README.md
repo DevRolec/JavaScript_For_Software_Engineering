@@ -543,7 +543,7 @@ Event Loop & Microtasks
 
 Final Project: Weather Dashboard
 
-🌀 1. Callback Functions
+## 🌀 1. Callback Functions
 🔎 What is a Callback?
 A callback is a function passed as an argument to another function, to be executed later.
 
@@ -563,7 +563,7 @@ Write a loadProfile(callback) function that waits 2 seconds and then logs "Profi
 
 Chain multiple callbacks to simulate a step-by-step loading process (e.g., authenticate → fetch profile → show dashboard).
 
-🔐 2. Promises
+## 🔐 2. Promises
 🔎 What is a Promise?
 A Promise represents a value that may be available now, later, or never.
 
@@ -579,7 +579,7 @@ Create a function getPosts() that returns a Promise resolved after 2 seconds.
 ```js
 Chain .then() to log the post list.
 ```
-⏳ 3. Async/Await Pattern
+##⏳ 3. Async/Await Pattern
 🔎 What is Async/Await?
 It’s syntactic sugar over Promises that makes your async code look synchronous and easier to read.
 
@@ -598,7 +598,7 @@ Convert your getPosts() from earlier to use async/await.
 
 Create a sequence of await calls that depend on each other.
 
-🌐 4. Fetch API
+##🌐 4. Fetch API
 🔎 What is Fetch?
 The fetch() method lets you make HTTP requests in the browser.
 
@@ -612,7 +612,7 @@ Use fetch() to call https://jsonplaceholder.typicode.com/posts.
 
 Display the first 3 post titles in the browser.
 
-⚠️ 5. Error Handling
+## ⚠️ 5. Error Handling
 🔎 Why is it Important?
 Handle errors gracefully so your app doesn’t break when a server fails.
 
@@ -629,7 +629,7 @@ Break a fetch() on purpose and catch the error.
 
 Use try/catch inside async functions.
 
-⚙️ 6. Throttling and Debouncing
+## ⚙️ 6. Throttling and Debouncing
 🔎 What’s the Difference?
 Throttling: Limits function calls to once every X ms.
 
@@ -649,7 +649,7 @@ Add a debounced search input using setTimeout.
 
 Add a throttled window resize logger using setInterval.
 
-🧠 7. Event Loop & Microtasks
+## 🧠 7. Event Loop & Microtasks
 🔎 How JS Handles Async Code?
 JS has an event loop that manages sync code, microtasks (Promises), and macrotasks (setTimeout, etc.).
 
@@ -844,7 +844,7 @@ Event Delegation:
 
 Event delegation is a technique where you attach a single event listener to a parent element to handle events for all its current and future descendant elements. This is efficient, especially for dynamically added elements.
 
-HTML
+```html
 
 <ul id="item-list">
   <li>Item 1</li>
@@ -871,6 +871,7 @@ HTML
     itemList.appendChild(newItem);
   });
 </script>
+```
 In this example, we only attach one click listener to the <ul>. When any <li> inside it is clicked, the event bubbles up to the <ul>, and we check if the event.target (the originating element of the event) is an <li>.
 
 Practice Assignment 2:
@@ -884,7 +885,7 @@ Accessing Form Elements:
 
 You can select form elements using the DOM selection methods we learned earlier.
 
-HTML
+```html
 
 <form id="myForm">
   <label for="name">Name:</label>
@@ -908,6 +909,7 @@ HTML
     // Perform validation here
   });
 </script>
+```
 Form Validation:
 
 Client-side validation improves user experience by providing immediate feedback before submitting the form to the server.
@@ -943,9 +945,10 @@ function isValidEmail(email) {
  ```
 HTML5 Form Validation Attributes:
 
-HTML5 provides built-in validation attributes like required, minlength, maxlength, type="email", pattern, etc. The browser automatically handles some of this validation. You can access the validity state of form elements using the validity property.
+HTML5 provides built-in validation attributes like required, minlength, maxlength, type="email", pattern, etc.
+The browser automatically handles some of this validation. You can access the validity state of form elements using the validity property.
 
-HTML
+```html
 
 <form id="myFormHTML5">
   <label for="name">Name:</label>
@@ -989,6 +992,7 @@ HTML
     }
   });
 </script>
+```
 Practice Assignment 3:
 
 Create an HTML form with fields for name (required, min length 3), email (required, valid format), and a password (required, min length 6).
@@ -1158,8 +1162,7 @@ import greeting from './greeting.js';
 console.log(greeting); // Output: Hello!
 Browsers require special handling for ES Modules, typically using the <script type="module"> tag in your HTML.
 ```
-HTML
-
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -1169,6 +1172,7 @@ HTML
   <script type="module" src="main.js"></script>
 </body>
 </html>
+```
 Practice Assignment 1:
 
 Create two JavaScript files (utils.js and app.js).
@@ -1187,7 +1191,7 @@ package.json: A file at the root of your project that tracks the project's depen
 node_modules: A directory where the installed packages and their dependencies reside.
 Common Commands:
 
-npm:
+```npm
 
 npm init -y: Initializes a new npm project with default settings, creating a package.json file.
 npm install <package-name> or npm i <package-name>: Installs a specific package and adds it to package.json.
@@ -1208,7 +1212,8 @@ Example:
 Initialize a new npm project: npm init -y
 Install the lodash utility library: npm install lodash (or yarn add lodash)
 In your JavaScript file:
-JavaScript
+```
+```js
 
 // Using lodash (assuming you're in a Node.js environment or using a bundler)
 import _ from 'lodash';
@@ -1216,6 +1221,7 @@ import _ from 'lodash';
 const numbers = [1, 2, 2, 3, 4, 4, 5];
 const uniqueNumbers = _.uniq(numbers);
 console.log(uniqueNumbers); // Output: [1, 2, 3, 4, 5]
+```
 Practice Assignment 2:
 
 Create a new project directory.
@@ -1261,7 +1267,6 @@ Create a src folder with an index.js file (and any other modules).
 ```
 Add a script to your package.json:
 
-JSON
 ```json
 "scripts": {
   "build": "webpack --config webpack.config.js"
@@ -1270,7 +1275,7 @@ Run the build command: npm run build (or yarn build). This will create a dist fo
 ```
 In your HTML, link to the bundled file:
 
-HTML
+```html
 
 <!DOCTYPE html>
 <html>
@@ -1281,18 +1286,19 @@ HTML
   <script src="./dist/bundle.js"></script>
 </body>
 </html>
+```
 Vite offers a more streamlined developer experience out of the box. To try Vite:
 
 Create a new Vite project:
 
-Bash
+```Bash
 
 npm create vite@latest my-vite-app -- --template vanilla
 cd my-vite-app
 npm install
 npm run dev
 Vite will typically handle bundling and serving your application with hot module replacement without extensive configuration.
-
+```
 Practice Assignment 3:
 
 Set up a simple project with a few JavaScript modules that import each other.
@@ -1303,14 +1309,14 @@ Modern JavaScript features (ES6+) are not always fully supported by all browsers
 
 Install Babel core and the preset for the target environment (e.g., ES2015):
 
-Bash
+```Bash
 
 npm install --save-dev @babel/core @babel/preset-env
 # or
 yarn add --dev @babel/core @babel/preset-env
 Create a .babelrc or babel.config.js file to configure Babel:
-
-JSON
+```
+```JSON
 
 // .babelrc
 {
@@ -1362,19 +1368,18 @@ Setting up ESLint:
 
 Install ESLint and a recommended configuration (e.g., Airbnb's style guide):
 
-Bash
+```Bash
 
 npm install --save-dev eslint eslint-config-airbnb-base eslint-plugin-import
 # or
 yarn add --dev eslint eslint-config-airbnb-base eslint-plugin-import
 Initialize ESLint configuration:
 
-Bash
 
 npx eslint --init
 # Follow the prompts (e.g., "To check syntax, find problems, and enforce code style", "JavaScript modules (import/export)", etc.)
 # Or, if you want to use Airbnb, create a `.eslintrc.js` file:
-JavaScript
+```
 ```js
 // .eslintrc.js (using Airbnb style guide)
 module.exports = {
@@ -1395,26 +1400,29 @@ module.exports = {
     // Add or override rules here if needed
   },
 };
+```
 Add an npm script to run ESLint:
-JSON
+```JSON
 
 // package.json
 "scripts": {
   "lint": "eslint ."
 }
+```
 Run the linter: npm run lint. It will report any style or potential error issues.
 Setting up Prettier:
 
 Install Prettier:
 
-Bash
+```Bash
 
 npm install --save-dev prettier
 # or
 yarn add --dev prettier
+```
 Create a .prettierrc.js (or .prettierrc, etc.) to configure Prettier (optional, as it has default settings):
 
-JavaScript
+```js
 
 // .prettierrc.js
 module.exports = {
@@ -1424,7 +1432,7 @@ module.exports = {
 };
 ```
 Add an npm script to run Prettier:
-JSON
+
 ```json
 // package.json
 "scripts": {
@@ -1476,19 +1484,20 @@ Test-Driven Development (TDD) is a development approach where you write tests be
 
 Install Jest as a dev dependency:
 
-Bash
+```Bash
 
 npm install --save-dev jest
 # or
 yarn add --dev jest
 Add a test script to your package.json:
-
-JSON
+```
+```JSON
 
 "scripts": {
   "test": "jest"
 }
 Create a test file. Jest typically looks for files with the .test.js or .spec.js extension, often in a __tests__ directory. For example, if you have a file math.js, your test file might be __tests__/math.test.js.
+```
 JavaScript
 
 ```js
