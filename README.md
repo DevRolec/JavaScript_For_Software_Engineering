@@ -1480,7 +1480,8 @@ Write a JavaScript function with a bug (e.g., an off-by-one error in a loop).
 Create an HTML file that calls this function and displays the result.
 Use Chrome DevTools to debug your JavaScript code. Set breakpoints, step through the execution, and inspect variables to identify and fix the bug.
 7. TDD with Jest
-Test-Driven Development (TDD) is a development approach where you write tests before you write the actual code. Jest is a popular JavaScript testing framework, especially known for its ease of use and built-in features.
+Test-Driven Development (TDD) is a development approach where you write tests before you write the actual code. 
+Jest is a popular JavaScript testing framework, especially known for its ease of use and built-in features.
 
 Install Jest as a dev dependency:
 
@@ -2142,9 +2143,6 @@ interface User {
 const user: User = { id: 1, username: 'alice' };
 
 🧠 Practice
-
-Convert a JS file to TypeScript.
-
 Define interfaces for API response objects.
 
 Create a generic function to reverse an array.
