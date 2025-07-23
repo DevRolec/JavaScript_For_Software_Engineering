@@ -1008,7 +1008,7 @@ setItem(key, value): Adds or updates a key/value pair. Values are stored as stri
 getItem(key): Retrieves the value associated with the given key. Returns null if the key does not exist.
 removeItem(key): Removes the key/value pair associated with the given key.
 clear(): Removes all key/value pairs stored in the storage.
-JavaScript
+---
 ```js
 // localStorage example
 localStorage.setItem('username', 'john.doe');
@@ -1025,7 +1025,7 @@ console.log('Session ID from sessionStorage:', sessionId);
 // sessionStorage.clear();
 You can store more complex data by serializing it to JSON:
 ```
-JavaScript
+
 ```js
 const user = { name: 'Alice', age: 30 };
 localStorage.setItem('userData', JSON.stringify(user));
@@ -1054,7 +1054,7 @@ location.hash: The fragment identifier part of the URL (starting with "#").
 location.assign(url): Loads a new document at the given URL. Records the navigation in the browser's history.
 location.replace(url): Loads a new document at the given URL. Does not record the navigation in the browser's history (you can't go back).
 location.reload(): Reloads the current page.
-JavaScript
+
 ```js
 console.log('Current URL:', window.location.href);
 console.log('Pathname:', window.location.pathname);
@@ -1074,7 +1074,7 @@ history.pushState(state, title, url): Adds a new state to the history stack. The
 history.replaceState(state, title, url): Modifies the current history entry. Similar to pushState but doesn't create a new entry.
 The popstate event is fired when the active history entry changes (e.g., when the user clicks the back or forward button, or when history.go(), history.back(), or history.forward() are called).
 ```
-JavaScript
+
 ```js
 // Example using pushState
 function navigate(page) {
@@ -1151,7 +1151,7 @@ console.log(subtract(10, 4)); // Output: 6
 // console.log(math.add(5, 3));
 You can also have a default export:
 ```
-JavaScript
+
 ```js
 // greeting.js (ESM)
 const message = "Hello!";
