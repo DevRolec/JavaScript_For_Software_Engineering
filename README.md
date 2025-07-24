@@ -2174,6 +2174,10 @@ Service Workers for offline support
 JWT authentication mock (optional)
 
 Deployment-ready with PWA features
+---
+# Bash Script tutorial
+1. Create a script file
+---
 
 💼 Deliverables
 
